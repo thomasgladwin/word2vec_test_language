@@ -166,20 +166,23 @@ f.close()
 #
 
 # Similarities
-fig, axs = plt.subplots(nrows=max(2, n_simils), ncols=max(2, len(biases)), sharey=True)
+#sel_plots = range(n_simils)
+sel_plots = [0, 1]
+fig, axs = plt.subplots(nrows=max(2, len(sel_plots)), ncols=max(2, len(biases)), sharey=True)
 fig.suptitle('Similarity over training time')
 for iBias in range(len(biases)):
     bias = biases[iBias]
-    for i_simil in range(n_simils):
-        axs[i_simil, iBias].plot(training_lengths, np.array(m_simils[iBias][i_simil]))
-        axs[i_simil, iBias].plot(training_lengths, np.array(m_simils[iBias][i_simil]) + np.array(sd_simils[iBias][i_simil]))
-        axs[i_simil, iBias].plot(training_lengths, np.array(m_simils[iBias][i_simil]) - np.array(sd_simils[iBias][i_simil]))
+    for ii_simil in range(len(sel_plots)):
+        i_simil = sel_plots[ii_simil]
+        axs[ii_simil, iBias].plot(training_lengths, np.array(m_simils[iBias][i_simil]))
+        axs[ii_simil, iBias].plot(training_lengths, np.array(m_simils[iBias][i_simil]) + np.array(sd_simils[iBias][i_simil]))
+        axs[ii_simil, iBias].plot(training_lengths, np.array(m_simils[iBias][i_simil]) - np.array(sd_simils[iBias][i_simil]))
         numvec = d_to_numvec(i_simil)
         v1 = str(numvec[0])
         v2 = str(numvec[1])
-        axs[i_simil, iBias].title.set_text(v1 + '_' + v2 + ", bias=" + str(bias))
-        if i_simil < (n_simils - 1):
-            axs[i_simil, iBias].tick_params(
+        axs[ii_simil, iBias].title.set_text(v1 + '_' + v2 + ", bias=" + str(bias))
+        if ii_simil < (len(sel_plots) - 1):
+            axs[ii_simil, iBias].tick_params(
                 axis='x',  # changes apply to the x-axis
                 which='both',  # both major and minor ticks are affected
                 bottom=False,  # ticks along the bottom edge are off
