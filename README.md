@@ -1,7 +1,7 @@
 # word2vec_test_language
 A simple toy language to explore semantic vector training
 
-main.py contains the example code to create and simulate a toy languags with prespecified "semantic" relationships. The idea is explained here: https://www.tegladwin.com/files/howto/word2vec_toy_language.php.
+main.py contains the example code to create and simulate a toy language with prespecified "semantic" relationships. The idea is explained here: https://www.tegladwin.com/files/howto/word2vec_toy_language.php.
 
 During simulations, the language generator pseudorandomly pick a word-pair (the "throw" of dice variable), and one the pair is selected to be used in a sentence. The surrounding words are determined by the word-pair selected (depending on the noise parameter, this can be partly random). A set of similarities between selected pairs of words are calculated for each run of the simulation, and for each of a range of training times. The basic test is whether words within the same pair are more similar then words taken from different pairs. The pairs {"0", "1"} and {"2", "3"} are used for this.
 
