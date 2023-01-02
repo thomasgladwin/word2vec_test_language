@@ -8,3 +8,7 @@ During simulations, the language generator pseudorandomly pick a word-pair (the 
 There is also an overlapping pair of pairs, {"4", "5"} and {"4", "7"}. This is used to test a biasing effect, created by adding echoes of the {"4", "5"} pair but not of the {"4", "7"} pair.
 
 (Not made to be in any way efficient - just as simple as transparent as possible as a basis to try stuff out and see what's going on!)
+
+
+[![DOI](https://zenodo.org/badge/583027151.svg)](https://zenodo.org/badge/latestdoi/583027151)
+
